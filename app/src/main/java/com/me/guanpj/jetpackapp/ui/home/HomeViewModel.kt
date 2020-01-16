@@ -3,11 +3,10 @@ package com.me.guanpj.jetpackapp.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.me.guanpj.jetpackapp.data.bean.Component
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel internal constructor(homeRepository: HomeRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    val listData: LiveData<List<Component>> = homeRepository.getPlants()
+
 }

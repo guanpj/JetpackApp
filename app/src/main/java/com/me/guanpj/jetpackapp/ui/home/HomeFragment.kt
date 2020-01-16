@@ -9,10 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.me.guanpj.jetpackapp.R
+import com.me.guanpj.jetpackapp.databinding.FragmentHomeBinding
+import com.me.guanpj.jetpackapp.ui.adapter.HomeListAdapter
 
 class HomeFragment : Fragment() {
 
+    private var isLine: Boolean = false
     private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
@@ -20,14 +25,24 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        context ?: return binding.root
+        val adapter = HomeListAdapter()
+        binding.rvHome.adapter = adapter
+        subscribeUi(adapter, binding)
+        return binding.root
+    }
+
+    private fun subscribeUi(adapter: HomeListAdapter, binding: FragmentHomeBinding) {
+        viewModel = obtainViewModel(HomeListViewModel::class.java)
+        viewModel.listData.observe(viewLifecycleOwner, Observer { data ->
+            if (data != null) adapter.submitList(data)
         })
-        return root
+        binding.fab.setOnClickListener {
+            binding.rvHome.layoutManager = if (isLine) GridLayoutManager(context,2) else LinearLayoutManager(context)
+            binding.fab.setImageResource(if (isLine) R.mipmap.icon_lin else R.mipmap.icon_grid)
+            isLine = !isLine
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
