@@ -19,7 +19,7 @@ package com.me.guanpj.jetpackapp
 /**
  * Constants used throughout the app.
  */
-object Constants {
+object Constants1 {
     const val DATABASE_NAME = "JetpackNote-db"
     const val COMPONENT_DATA_FILENAME = "component.json"
 
