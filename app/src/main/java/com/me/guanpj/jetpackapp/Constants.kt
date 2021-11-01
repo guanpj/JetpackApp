@@ -16,6 +16,9 @@
 
 package com.me.guanpj.jetpackapp
 
+import android.content.Intent
+import com.google.gson.Gson
+
 /**
  * Constants used throughout the app.
  */
@@ -37,6 +40,17 @@ object Constants {
         const val CSDN_TITLE = "CSDN"
         const val BLOG = "http://hankkin.club"
         const val BLOG_TITLE = "博客"
+
+        if (bean.isLabel())
+        {
+            val intent = Intent(this@CustomizedVipActivity, WebActivity::class.java)
+            intent.putExtra("url", URL_VIP_ACTIVITY.toString() + "?appCode=" + Config.APP_CODE)
+            intent.putExtra("bean", Gson().toJson(bean))
+            intent.putExtra("mWallet", mWallet)
+            intent.putExtra("mPageTag", mPageTag)
+            startActivity(intent)
+            return
+        }
     }
 
     object AboutUrl7 {
