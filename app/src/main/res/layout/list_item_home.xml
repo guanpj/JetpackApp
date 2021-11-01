@@ -9,7 +9,7 @@
                 type="android.view.View.OnClickListener"/>
         <variable
                 name="component"
-                type="com.me.guanpj.jetpackapp.bean.Component"/>
+                type="com.me.guanpj.jetpackapp.data.bean.Component"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
