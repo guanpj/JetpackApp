@@ -24,7 +24,7 @@ object Constants {
     const val COMPONENT_DATA_FILENAME = "component.json"
 
     object AboutUrl {
-
+        const val JETPACK111 = "https://github.com/Hankkin/JetPack_Note"
         const val JETPACK = "https://github.com/Hankkin/JetPack_Note"
         const val JETPACK_TITLE = "JetPack_Note"
         const val GITHUB = "https://github.com/Hankkin"
