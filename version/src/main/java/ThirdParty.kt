@@ -15,6 +15,7 @@ object ThirdParty {
     const val converterProtobuf = "com.squareup.retrofit2:converter-protobuf:$retrofitVersion"
     const val okhttp = "com.squareup.okhttp3:okhttp:4.9.0"
 
-    const val glideCompiler = "com.github.bumptech.glide:compiler:4.10.0"
-    const val glide = "com.github.bumptech.glide:glide:4.10.0"
+    const val glideVersion = "4.10.0";
+    const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
+    const val glide = "com.github.bumptech.glide:glide:$glideVersion"
 }
