@@ -27,9 +27,15 @@ allprojects {
 
 subprojects {
     // 子项目统一应用插件
-    project.apply(plugin = "com.me.guanpj.version")
+    project.apply {
+        apply(plugin = "com.me.guanpj.version")
+        apply(plugin = "kotlin-android")
+        apply(plugin = "kotlin-kapt")
+    }
     if ("baselib" == project.name) project.apply(plugin = "com.android.library")
-    else project.apply(plugin = "com.android.application")
+    else project.apply {
+        apply(plugin = "com.android.application")
+    }
 }
 
 tasks.register<Delete>("clean") {

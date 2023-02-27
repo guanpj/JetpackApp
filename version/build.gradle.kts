@@ -22,6 +22,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
     compileOnly("com.android.tools.build:gradle:7.4.1")
 }
+
 kotlinDslPluginOptions {
     experimentalWarning.set(false)
 }

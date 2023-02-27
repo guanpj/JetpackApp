@@ -24,4 +24,7 @@ dependencies {
     compileOnly(ThirdParty.converterMoshi)
     compileOnly(ThirdParty.converterProtobuf)
     compileOnly(ThirdParty.okhttp)
+
+    kapt(ThirdParty.glideCompiler)
+    implementation(ThirdParty.glide)
 }
