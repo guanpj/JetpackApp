@@ -13,6 +13,7 @@ object ThirdParty {
     const val converterGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     const val converterMoshi = "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     const val converterProtobuf = "com.squareup.retrofit2:converter-protobuf:$retrofitVersion"
+
     const val okhttp = "com.squareup.okhttp3:okhttp:4.9.0"
 
     const val glideVersion = "4.10.0";
